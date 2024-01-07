@@ -1,5 +1,6 @@
 package com.cydeo.client;
 
+import com.cydeo.dto.weather.WeatherResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +15,7 @@ public interface WeatherApiClient {
     // query=London
 
     @GetMapping("/current")
-    Object getCurrentWeather(@RequestParam(value = "access_key") String accessKey,
-                             @RequestParam(value = "query") String city);
+    WeatherResponse getCurrentWeather(@RequestParam(value = "access_key") String accessKey,
+                                      @RequestParam(value = "query") String city);
 
 }
